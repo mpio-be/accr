@@ -1,2 +1,12 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^annotator\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.vscode$
+^\.github$
+^CRAN-SUBMISSION$
+^cran-comments\.md$
+^README\.Rmd$
