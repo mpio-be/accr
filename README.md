@@ -10,6 +10,9 @@
 The goal of accr is to provide a toolkit for working with accelerometer
 data from small animal studies.
 
+**Note:** This package is currently in the alpha stage, and its
+functionality may change significantly in the near future.
+
 ## Installation
 
 You can install the development version of accr from
