@@ -31,7 +31,7 @@ computing a resting threshold on the fly.
 library(accr)
 data(pesaODBA)
 setODBA(pesaODBA, "datetime_", "ODBA")
-actogram(pesaODBA, threshold = resting_threshold, Sigma = 2 )
+actogram(pesaODBA, threshold = resting_threshold)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />

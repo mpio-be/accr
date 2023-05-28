@@ -38,5 +38,5 @@ This is a basic example which shows how to plot an actogram while computing a re
 library(accr)
 data(pesaODBA)
 setODBA(pesaODBA, "datetime_", "ODBA")
-actogram(pesaODBA, threshold = resting_threshold, Sigma = 2 )
+actogram(pesaODBA, threshold = resting_threshold)
 ```
