@@ -7,8 +7,8 @@ actogram <- function(obj, ...) {
 #' actogram
 #' actogram
 #'
-#' @param O
-#' @param threshold a number specifying a threshold or a function see [accr::resting_threshold()]
+#' @param O an "ODBA" data.frame. see [accr::setODBA()]
+#' @param threshold a number specifying a threshold or a function returning a threshold. See [accr::resting_threshold()].
 #' @param ...
 #'
 #' @export

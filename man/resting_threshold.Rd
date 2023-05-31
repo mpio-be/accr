@@ -4,14 +4,14 @@
 \alias{resting_threshold}
 \title{resting_threshold}
 \usage{
-resting_threshold(x, method = "mixfit", Sigma = 2)
+resting_threshold(x, method = "mixfit", ...)
 }
 \arguments{
 \item{x}{An ODBA data.table. See [accr::setODBA()]}
 
 \item{method}{Only "mixfit" available at the moment. See [mixR::mixfit]}
 
-\item{Sigma}{SD units away away from the mean to set the resting cutoff. Default t0 2.}
+\item{...}{Further arguments passed to the underlining methods.}
 }
 \value{
 A value for the resting threshold is given.
@@ -22,8 +22,9 @@ resting_threshold
 \examples{
 data(pesaODBA)
 setODBA(pesaODBA, "datetime_", "ODBA")
-thr = resting_threshold(pesaODBA)
+thr = resting_threshold(pesaODBA, method = "mixfit")
 density(pesaODBA$ODBA) |> plot()
 abline(v = thr, col = 2)
+
 
 }

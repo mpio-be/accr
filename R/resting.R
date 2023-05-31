@@ -29,6 +29,7 @@
 #'
 #' @param x       An ODBA data.table. See [accr::setODBA()]
 #' @param method  Only "mixfit" available at the moment. See [mixR::mixfit]
+#' @param ...     Further arguments passed to the underlining methods. 
 #'
 #' @return A value for the resting threshold is given.
 #' @export
@@ -36,11 +37,12 @@
 #' @examples
 #' data(pesaODBA)
 #' setODBA(pesaODBA, "datetime_", "ODBA")
-#' thr = resting_threshold(pesaODBA)
+#' thr = resting_threshold(pesaODBA, method = "mixfit")
 #' density(pesaODBA$ODBA) |> plot()
 #' abline(v = thr, col = 2)
+#' 
 #'
-resting_threshold <- function(x, method = "mixfit") {
+resting_threshold <- function(x, method = "mixfit", ...) {
   stopifnot(inherits(x, "ODBA"))
 
   odba = attr(x, "odba")
@@ -51,7 +53,7 @@ resting_threshold <- function(x, method = "mixfit") {
     assign(".V", x[, ..odba][[1]] |> log(), .GlobalEnv)
     #on.exit(rm(.V, envir = .GlobalEnv))
 
-    mm = mixR::mixfit(get(".V", .GlobalEnv), ncomp = 2, family = "normal")
+    mm = mixR::mixfit(get(".V", .GlobalEnv), ncomp = 2, family = "normal", ...)
     out = .cutoff(mm$mu[1], mm$mu[2], mm$sd[1], mm$sd[2], R = range(.V)) |>
       exp()
     

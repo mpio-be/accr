@@ -8,7 +8,9 @@ actogram}
 \method{actogram}{ODBA}(O, threshold, ...)
 }
 \arguments{
-\item{threshold}{a number specifying a threshold or a function see [accr::resting_threshold()]}
+\item{O}{an "ODBA" data.frame. see [accr::setODBA()]}
+
+\item{threshold}{a number specifying a threshold or a function returning a threshold. See [accr::resting_threshold()].}
 
 \item{...}{}
 }
@@ -19,7 +21,7 @@ actogram
 \examples{
 data(pesaODBA)
 setODBA(pesaODBA, "datetime_", "ODBA")
-actogram(pesaODBA, threshold = resting_threshold, sigma = 2 )
+actogram(pesaODBA, threshold = resting_threshold, Sigma = 2 )
 Fixed threshold based on 100 individuals from the same cohort as the pesaODBA male.
 actogram(pesaODBA, threshold = 780.83)
 
