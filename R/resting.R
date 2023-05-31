@@ -6,6 +6,7 @@
   fun <- function(cutoff, mu1, mu2, sigma1, sigma2) {
     separation <- abs(
       pnorm(cutoff, mean = mu1, sd = sigma1) - pnorm(cutoff, mean = mu2, sd = sigma2)
+      
     )
 
     return(-separation)
@@ -47,11 +48,12 @@ resting_threshold <- function(x, method = "mixfit") {
   if (method == "mixfit") {
     
     # because mixfit does not work normally
-    assign(".V", x[, ..odba][[1]], .GlobalEnv)
+    assign(".V", x[, ..odba][[1]] |> log(), .GlobalEnv)
     #on.exit(rm(.V, envir = .GlobalEnv))
 
-    mm = mixR::mixfit(get(".V", .GlobalEnv), ncomp = 2, family = "lnorm")
-    out = .cutoff(mm$mu[1], mm$mu[2], mm$sd[1], mm$sd[2], R = range(.V))
+    mm = mixR::mixfit(get(".V", .GlobalEnv), ncomp = 2, family = "normal")
+    out = .cutoff(mm$mu[1], mm$mu[2], mm$sd[1], mm$sd[2], R = range(.V)) |>
+      exp()
     
     return(out)
 
