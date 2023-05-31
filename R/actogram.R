@@ -15,7 +15,7 @@ actogram <- function(obj, ...) {
 #' @examples
 #' data(pesaODBA)
 #' setODBA(pesaODBA, "datetime_", "ODBA")
-#' actogram(pesaODBA, threshold = resting_threshold, Sigma = 2 )
+#' actogram(pesaODBA, threshold = resting_threshold)
 #' Fixed threshold based on 100 individuals from the same cohort as the pesaODBA male.
 #' actogram(pesaODBA, threshold = 780.83)
 #'
